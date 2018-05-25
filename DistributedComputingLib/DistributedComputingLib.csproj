@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{36BF73F7-3508-455E-BA01-33C44F73B4B9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DistributedComputing</RootNamespace>
+    <AssemblyName>DistributedComputingLib</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CheckConnection\CheckConnectionService.cs" />
+    <Compile Include="CheckConnection\ConnectionMeasuring.cs" />
+    <Compile Include="CheckConnection\ICheckConnectionService.cs" />
+    <Compile Include="Client\ClientServerConnection.cs" />
+    <Compile Include="Client\ClientTask.cs" />
+    <Compile Include="ComputingEntities\IProcess.cs" />
+    <Compile Include="ComputingEntities\IResultCompiler.cs" />
+    <Compile Include="ComputingEntities\IObjectDivider.cs" />
+    <Compile Include="Connection.cs" />
+    <Compile Include="ConnectionControl.cs" />
+    <Compile Include="DistributedComputingResult.cs" />
+    <Compile Include="DistributedResource\DistributedResource.cs" />
+    <Compile Include="DistributedResource\DistributedResourceHandler.cs" />
+    <Compile Include="DistributedResource\DistributedResourceManager.cs" />
+    <Compile Include="DistributedResource\IDistributedResourceService.cs" />
+    <Compile Include="DividedResource\DividedResource.cs" />
+    <Compile Include="DividedResource\DividedResourceManager.cs" />
+    <Compile Include="Libraries\DistributedTaskLibrary.cs" />
+    <Compile Include="Libraries\DistributedTaskLibraryService.cs" />
+    <Compile Include="Libraries\IDistributedTaskLibraryService.cs" />
+    <Compile Include="Libraries\LibraryCreator.cs" />
+    <Compile Include="Libraries\TaskLibrary.cs" />
+    <Compile Include="Libraries\TaskLibraryManager.cs" />
+    <Compile Include="Logging\ConsoleLogger.cs" />
+    <Compile Include="Logging\ILogger.cs" />
+    <Compile Include="Logging\Logging.cs" />
+    <Compile Include="NoServerConnectionException.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RemoteConnection.cs" />
+    <Compile Include="ServerUnavailableException.cs" />
+    <Compile Include="Server\ClientRegistrationService.cs" />
+    <Compile Include="Server\ServerConnectionControl.cs" />
+    <Compile Include="Server\ConnectionInfo.cs" />
+    <Compile Include="Server\DistributingStrategy.cs" />
+    <Compile Include="Server\IClientRegistrationService.cs" />
+    <Compile Include="Server\IDistributingStrategy.cs" />
+    <Compile Include="Server\IServerTaskService.cs" />
+    <Compile Include="Server\IWorkerRegistrationService.cs" />
+    <Compile Include="Server\Server.cs" />
+    <Compile Include="Server\ServerTaskService.cs" />
+    <Compile Include="Server\TaskExecutor.cs" />
+    <Compile Include="Server\TaskPart.cs" />
+    <Compile Include="Server\WorkerInfo.cs" />
+    <Compile Include="Server\WorkerRegistrationService.cs" />
+    <Compile Include="TaskException.cs" />
+    <Compile Include="TaskHandler\TaskHandler.cs" />
+    <Compile Include="TaskHandler\TaskHandlerFactory.cs" />
+    <Compile Include="UriTemplates.cs" />
+    <Compile Include="Worker\IWorkerPerformanceService.cs" />
+    <Compile Include="Worker\IWorkerTaskService.cs" />
+    <Compile Include="Worker\Worker.cs" />
+    <Compile Include="Worker\WorkerPerformanceService.cs" />
+    <Compile Include="Worker\WorkerServerConnection.cs" />
+    <Compile Include="Worker\WorkerTaskService.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
